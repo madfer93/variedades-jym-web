@@ -1,0 +1,2009 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variedades JYM - Automatización Digital</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #4a90e2 0%, #9b59b6 50%, #e67e22 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .logo-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #e67e22;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 3rem 0;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-section {
+            margin-bottom: 4rem;
+        }
+        
+        .hero-section h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-section p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        /* About Section */
+        .about-section {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            color: #333;
+            text-align: left;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .profile-image {
+            width: 300px;
+            height: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: #9b59b6;
+            margin-bottom: 1rem;
+        }
+        
+        .about-text h3 {
+            font-size: 1.5rem;
+            color: #e67e22;
+            margin-bottom: 1rem;
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        
+        /* Process Section */
+        .process-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            color: #333;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .process-section h2 {
+            font-size: 2.5rem;
+            color: #9b59b6;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .step-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-top: 4px solid #e67e22;
+            transition: transform 0.3s ease;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -15px;
+            right: 15px;
+            background: #e67e22;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .step-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .step-card h3 {
+            color: #9b59b6;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .step-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Guarantees Section */
+        .guarantees-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            color: #333;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .guarantees-section h2 {
+            font-size: 2.5rem;
+            color: #9b59b6;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .guarantees-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .guarantee-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-left: 4px solid #e67e22;
+            transition: transform 0.3s ease;
+        }
+        
+        .guarantee-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .guarantee-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guarantee-card h3 {
+            color: #9b59b6;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guarantee-card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Before vs After Section */
+        .before-after-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            color: #333;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .before-after-section h2 {
+            font-size: 2.5rem;
+            color: #9b59b6;
+            margin-bottom: 1rem;
+        }
+        
+        .before-after-section > p {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .comparison-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .comparison-item {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .before-card, .after-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+        
+        .before-card {
+            border-left: 5px solid #e74c3c;
+        }
+        
+        .after-card {
+            border-left: 5px solid #27ae60;
+        }
+        
+        .before-card h3 {
+            color: #e74c3c;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .after-card h3 {
+            color: #27ae60;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .before-card ul, .after-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .before-card li, .after-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            font-size: 0.95rem;
+        }
+        
+        .arrow {
+            font-size: 3rem;
+            color: #9b59b6;
+            font-weight: bold;
+        }
+        
+        /* ROI Calculator Section */
+        .roi-calculator-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            color: #333;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .roi-calculator-section h2 {
+            font-size: 2.5rem;
+            color: #9b59b6;
+            margin-bottom: 1rem;
+        }
+        
+        .roi-calculator-section > p {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .calculator-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .calculator-inputs {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .input-group {
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #9b59b6;
+        }
+        
+        .mobile-control {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+        }
+        
+        .mobile-btn {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #9b59b6;
+            background: white;
+            color: #9b59b6;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .mobile-btn:hover, .mobile-btn:active {
+            background: #9b59b6;
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .mobile-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .input-group input[type="range"] {
+            flex: 1;
+            height: 8px;
+            border-radius: 5px;
+            background: #ddd;
+            outline: none;
+            margin: 0;
+            -webkit-appearance: none;
+        }
+        
+        .input-group input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #e67e22;
+            cursor: pointer;
+        }
+        
+        .input-group span {
+            font-weight: bold;
+            color: #e67e22;
+            font-size: 1.1rem;
+        }
+        
+        .calculate-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #e67e22, #d35400);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(230, 126, 34, 0.3);
+        }
+        
+        .calculator-results {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: left;
+        }
+        
+        .calculator-results h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .result-label {
+            font-size: 0.95rem;
+        }
+        
+        .result-value {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .total-roi {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .total-roi .result-value.total {
+            font-size: 1.5rem;
+            color: #f1c40f;
+        }
+        
+        /* Success Cases Section */
+        .success-cases-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            color: #333;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .success-cases-section h2 {
+            font-size: 2.5rem;
+            color: #9b59b6;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .case-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-top: 5px solid #e67e22;
+            transition: transform 0.3s ease;
+        }
+        
+        .case-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .case-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .case-header h3 {
+            color: #9b59b6;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .location {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .case-stats {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .stat {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .stat .before {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .stat .after {
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .stat .arrow {
+            color: #9b59b6;
+            font-size: 1.5rem;
+        }
+        
+        .stat .label {
+            color: #666;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+        
+        .case-description p {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .case-description strong {
+            color: #9b59b6;
+        }
+        
+        .case-timeline {
+            text-align: center;
+            margin-top: 1rem;
+            padding: 0.5rem;
+            background: linear-gradient(135deg, #e67e22, #d35400);
+            color: white;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        /* Why Choose Us Section */
+        .why-choose-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            color: #333;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .why-choose-section h2 {
+            font-size: 2.5rem;
+            color: #9b59b6;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .reason-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-bottom: 4px solid #e67e22;
+            transition: transform 0.3s ease;
+        }
+        
+        .reason-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .reason-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .reason-card h3 {
+            color: #9b59b6;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .reason-card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            color: #333;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .faq-section h2 {
+            font-size: 2.5rem;
+            color: #9b59b6;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            color: #9b59b6;
+            transition: background-color 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: #f8f9fa;
+        }
+        
+        .faq-toggle {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #e67e22;
+        }
+        
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            background: #f8f9fa;
+        }
+        
+        .faq-answer.active {
+            padding: 1.5rem;
+            max-height: 300px;
+        }
+        
+        .faq-answer p {
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            color: #333;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .testimonials-section h2 {
+            font-size: 2.5rem;
+            color: #9b59b6;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-top: 4px solid #e67e22;
+            transition: transform 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-content p {
+            font-style: italic;
+            color: #555;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .author-info strong {
+            color: #9b59b6;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        
+        .author-info span {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .rating {
+            color: #f39c12;
+            font-size: 1.2rem;
+        }
+        
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            padding: 1rem;
+        }
+        
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #e67e22;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Services Section */
+        .services-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            color: #333;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .services-section h2 {
+            font-size: 2.5rem;
+            color: #9b59b6;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border-left: 5px solid #e67e22;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: #9b59b6;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* AI Chat Section */
+        .chat-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            color: #333;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .chat-section h2 {
+            font-size: 2.5rem;
+            color: #9b59b6;
+            margin-bottom: 1rem;
+        }
+        
+        .chat-section > p {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .chat-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .chat-header {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        .chat-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #2ecc71;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .chat-messages {
+            height: 300px;
+            overflow-y: auto;
+            padding: 1rem;
+            background: #f8f9fa;
+        }
+        
+        .message {
+            margin-bottom: 1rem;
+            display: flex;
+        }
+        
+        .bot-message {
+            justify-content: flex-start;
+        }
+        
+        .user-message {
+            justify-content: flex-end;
+        }
+        
+        .message-content {
+            max-width: 80%;
+            padding: 0.75rem 1rem;
+            border-radius: 15px;
+            text-align: left;
+        }
+        
+        .bot-message .message-content {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .user-message .message-content {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .user-form {
+            padding: 1.5rem;
+            background: white;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .form-group input, .form-group select {
+            flex: 1;
+            padding: 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #9b59b6;
+        }
+        
+        #countryCode {
+            flex: 0 0 180px;
+        }
+        
+        .start-chat-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #e67e22, #d35400);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .start-chat-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.3);
+        }
+        
+        .chat-input-container {
+            display: flex;
+            padding: 1rem;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        #chatInput {
+            flex: 1;
+            padding: 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            margin-right: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        #chatInput:focus {
+            outline: none;
+            border-color: #9b59b6;
+        }
+        
+        #sendMessage {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        #sendMessage:hover {
+            transform: scale(1.05);
+        }
+
+        /* Hero Animated Icons */
+        .hero-icons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .floating-icon {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.1;
+            animation: floatIcon 8s infinite ease-in-out;
+        }
+        
+        .floating-icon:nth-child(1) { 
+            top: 10%; left: 10%; 
+            animation-delay: 0s; 
+        }
+        .floating-icon:nth-child(2) { 
+            top: 20%; right: 15%; 
+            animation-delay: 2s; 
+        }
+        .floating-icon:nth-child(3) { 
+            bottom: 30%; left: 20%; 
+            animation-delay: 4s; 
+        }
+        .floating-icon:nth-child(4) { 
+            bottom: 20%; right: 10%; 
+            animation-delay: 6s; 
+        }
+        .floating-icon:nth-child(5) { 
+            top: 50%; left: 5%; 
+            animation-delay: 1s; 
+        }
+        .floating-icon:nth-child(6) { 
+            top: 60%; right: 5%; 
+            animation-delay: 3s; 
+        }
+        
+        @keyframes floatIcon {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg); 
+                opacity: 0.1; 
+            }
+            50% { 
+                transform: translateY(-30px) rotate(180deg); 
+                opacity: 0.3; 
+            }
+        }
+        
+        /* Service Cards Animation */
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            animation: pulseIcon 3s infinite;
+        }
+        
+        @keyframes pulseIcon {
+            0%, 100% { 
+                transform: scale(1); 
+                box-shadow: 0 0 0 0 rgba(155, 89, 182, 0.4); 
+            }
+            50% { 
+                transform: scale(1.05); 
+                box-shadow: 0 0 0 10px rgba(155, 89, 182, 0); 
+            }
+        }
+        
+        /* Animated Process Steps */
+        .step-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: bounceStep 2s infinite;
+            animation-fill-mode: both;
+        }
+        
+        .step-card:nth-child(1) .step-icon { animation-delay: 0s; }
+        .step-card:nth-child(2) .step-icon { animation-delay: 0.2s; }
+        .step-card:nth-child(3) .step-icon { animation-delay: 0.4s; }
+        .step-card:nth-child(4) .step-icon { animation-delay: 0.6s; }
+        .step-card:nth-child(5) .step-icon { animation-delay: 0.8s; }
+        
+        @keyframes bounceStep {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        /* Chat Animation */
+        .chat-pulse {
+            animation: chatPulse 1.5s infinite;
+        }
+        
+        @keyframes chatPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Calculator Animation */
+        .calculator-glow {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .calculator-glow::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #9b59b6, #e67e22, #9b59b6);
+            border-radius: 17px;
+            z-index: -1;
+            animation: borderGlow 3s linear infinite;
+        }
+        
+        @keyframes borderGlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Success Cases Animation */
+        .stat .before, .stat .after {
+            animation: numberCount 2s ease-out;
+        }
+        
+        @keyframes numberCount {
+            from { 
+                transform: scale(0.8); 
+                opacity: 0; 
+            }
+            to { 
+                transform: scale(1); 
+                opacity: 1; 
+            }
+        }
+        
+        /* FAQ Animation */
+        .faq-question {
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: linear-gradient(135deg, rgba(155, 89, 182, 0.1), rgba(230, 126, 34, 0.1));
+            transform: translateX(5px);
+        }
+        
+        /* Mobile Button Animation */
+        .mobile-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mobile-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: width 0.3s, height 0.3s, top 0.3s, left 0.3s;
+        }
+        
+        .mobile-btn:active::before {
+            width: 100px;
+            height: 100px;
+            top: -25px;
+            left: -25px;
+        }
+        
+        /* Testimonial Stars Animation */
+        .rating {
+            color: #f39c12;
+            font-size: 1.2rem;
+        }
+        
+        .rating::before {
+            content: '★★★★★';
+            animation: starShine 2s infinite;
+        }
+        
+        @keyframes starShine {
+            0%, 100% { text-shadow: 0 0 5px rgba(243, 156, 18, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(243, 156, 18, 0.8), 0 0 30px rgba(243, 156, 18, 0.6); }
+        }
+        
+        /* Loading Animation for Chat */
+        .typing-dots {
+            display: inline-flex;
+            gap: 4px;
+        }
+        
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #9b59b6;
+            animation: typingDot 1.4s infinite ease-in-out;
+        }
+        
+        .typing-dot:nth-child(1) { animation-delay: 0s; }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+        
+        @keyframes typingDot {
+            0%, 60%, 100% { transform: scale(0.8); opacity: 0.5; }
+            30% { transform: scale(1.2); opacity: 1; }
+        }
+        
+        /* Contact Buttons Hover Effect */
+        .contact-button {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .contact-button:hover::before {
+            left: 100%;
+        }
+        
+        /* Page Load Animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .fade-in-up:nth-child(1) { animation-delay: 0.1s; }
+        .fade-in-up:nth-child(2) { animation-delay: 0.2s; }
+        .fade-in-up:nth-child(3) { animation-delay: 0.3s; }
+        .fade-in-up:nth-child(4) { animation-delay: 0.4s; }
+        .fade-in-up:nth-child(5) { animation-delay: 0.5s; }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .contact-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            color: #333;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .contact-section h2 {
+            font-size: 2.5rem;
+            color: #9b59b6;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .contact-button {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+        }
+        
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: white;
+        }
+        
+        .btn-personal {
+            background: linear-gradient(135deg, #e67e22, #d35400);
+            color: white;
+        }
+        
+        .contact-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .contact-info {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: white;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-section h1 { font-size: 2.2rem; }
+            .hero-section p { font-size: 1.1rem; }
+            .about-section { 
+                grid-template-columns: 1fr; 
+                text-align: center;
+                gap: 2rem;
+            }
+            .profile-image {
+                width: 250px;
+                height: 300px;
+                margin: 0 auto;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .contact-button {
+                min-width: 250px;
+            }
+            .comparison-item {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .arrow {
+                transform: rotate(90deg);
+                margin: 1rem 0;
+            }
+            .calculator-container {
+                grid-template-columns: 1fr;
+            }
+            .cases-grid {
+                grid-template-columns: 1fr;
+            }
+            .reasons-grid {
+                grid-template-columns: 1fr;
+            }
+        }-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="https://i.imgur.com/VKzNxQf.png" alt="Variedades JYM Logo">
+                <span class="logo-text">Variedades JYM</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <h1>Automatiza tu negocio y aumenta tus ventas con IA</h1>
+                <p>Transformo procesos manuales en sistemas inteligentes que trabajan 24/7 para hacer crecer tu empresa</p>
+            </div>
+
+            <!-- About Section -->
+            <div class="about-section">
+                <div class="profile-image">
+                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k=" alt="Manuel Madrid">
+                </div>
+                <div class="about-text">
+                    <h2>Quién Soy</h2>
+                    <h3>Manuel Madrid</h3>
+                    <p>Soy auxiliar de farmacia y consultor especializado en automatización digital. Con años de experiencia en el sector farmacéutico y tecnológico, he desarrollado una perspectiva única sobre cómo la tecnología puede optimizar los procesos empresariales.</p>
+                    <p>Mi misión es ayudar a emprendedores y empresas a crecer mediante la implementación de procesos digitales inteligentes que no solo ahorran tiempo y recursos, sino que también mejoran significativamente la experiencia del cliente.</p>
+                </div>
+            </div>
+
+            <!-- Before vs After Section -->
+            <div class="before-after-section">
+                <h2>El Antes y Después de la Automatización</h2>
+                <p>Mira la transformación real que experimentan nuestros clientes</p>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <div class="before-card">
+                            <h3>❌ Sin Automatización</h3>
+                            <ul>
+                                <li>📞 8 horas diarias respondiendo WhatsApp</li>
+                                <li>💸 30% ventas perdidas en horarios no laborales</li>
+                                <li>⏰ 4 horas semanales controlando inventario</li>
+                                <li>❌ 20% errores en facturación manual</li>
+                                <li>😰 Estrés por tareas repetitivas</li>
+                                <li>📉 Clientes frustrados por demoras</li>
+                            </ul>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="after-card">
+                            <h3>✅ Con Automatización</h3>
+                            <ul>
+                                <li>⚡ 0 horas (bot responde 24/7)</li>
+                                <li>📈 +45% más ventas con atención nocturna</li>
+                                <li>🤖 5 minutos: sistema automático</li>
+                                <li>✅ 0% errores con IA</li>
+                                <li>😎 Tiempo libre para estrategia</li>
+                                <li>🎉 Clientes satisfechos siempre</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROI Calculator Section -->
+            <div class="roi-calculator-section">
+                <h2>Calculadora de Retorno de Inversión</h2>
+                <p>Descubre cuánto dinero y tiempo podrías ahorrar automatizando tu negocio</p>
+                
+                <div class="calculator-container calculator-glow">
+                    <div class="calculator-inputs">
+                        <div class="input-group">
+                            <label>¿Cuántas horas diarias gastas en tareas repetitivas?</label>
+                            <div class="mobile-control">
+                                <button type="button" class="mobile-btn" onclick="adjustValue('hoursSlider', -1, 1, 12)">-</button>
+                                <input type="range" id="hoursSlider" min="1" max="12" value="4">
+                                <button type="button" class="mobile-btn" onclick="adjustValue('hoursSlider', 1, 1, 12)">+</button>
+                            </div>
+                            <span id="hoursValue">4 horas</span>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>¿Cuánto vale tu hora de trabajo? (COP)</label>
+                            <div class="mobile-control">
+                                <button type="button" class="mobile-btn" onclick="adjustValue('hourlyRateSlider', -5000, 10000, 100000)">-</button>
+                                <input type="range" id="hourlyRateSlider" min="10000" max="100000" value="25000" step="5000">
+                                <button type="button" class="mobile-btn" onclick="adjustValue('hourlyRateSlider', 5000, 10000, 100000)">+</button>
+                            </div>
+                            <span id="hourlyRateValue">$25.000</span>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>¿Cuántas ventas diarias pierdes por no responder 24/7?</label>
+                            <div class="mobile-control">
+                                <button type="button" class="mobile-btn" onclick="adjustValue('lostSalesSlider', -1, 0, 50)">-</button>
+                                <input type="range" id="lostSalesSlider" min="0" max="50" value="10">
+                                <button type="button" class="mobile-btn" onclick="adjustValue('lostSalesSlider', 1, 0, 50)">+</button>
+                            </div>
+                            <span id="lostSalesValue">10 ventas</span>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>¿Valor promedio de cada venta? (COP)</label>
+                            <div class="mobile-control">
+                                <button type="button" class="mobile-btn" onclick="adjustValue('avgSaleSlider', -10000, 10000, 200000)">-</button>
+                                <input type="range" id="avgSaleSlider" min="10000" max="200000" value="50000" step="10000">
+                                <button type="button" class="mobile-btn" onclick="adjustValue('avgSaleSlider', 10000, 10000, 200000)">+</button>
+                            </div>
+                            <span id="avgSaleValue">$50.000</span>
+                        </div>
+                        
+                        <button id="calculateROI" class="calculate-btn">Recalcular</button>
+                    </div>
+                    
+                    <div class="calculator-results" id="roiResults">
+                        <h3>Tu Potencial de Ahorro:</h3>
+                        <div class="result-item">
+                            <span class="result-label">Ahorro en tiempo mensual:</span>
+                            <span class="result-value" id="timeSavings">0 horas</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Ahorro monetario mensual:</span>
+                            <span class="result-value" id="moneySavings">$0</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Ingresos adicionales mensuales:</span>
+                            <span class="result-value" id="extraIncome">$0</span>
+                        </div>
+                        <div class="total-roi">
+                            <span class="result-label">TOTAL BENEFICIO MENSUAL:</span>
+                            <span class="result-value total" id="totalBenefit">$0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Success Cases -->
+            <div class="success-cases-section">
+                <h2>Casos de Éxito Reales</h2>
+                <div class="cases-grid">
+                    <div class="case-card">
+                        <div class="case-header">
+                            <h3>🏥 Farmacia Los Andes</h3>
+                            <span class="location">Bogotá, Colombia</span>
+                        </div>
+                        <div class="case-stats">
+                            <div class="stat">
+                                <span class="before">50</span>
+                                <span class="arrow">→</span>
+                                <span class="after">150</span>
+                                <span class="label">Ventas diarias</span>
+                            </div>
+                        </div>
+                        <div class="case-description">
+                            <p><strong>Problema:</strong> Perdían clientes en horas nocturnas y fines de semana</p>
+                            <p><strong>Solución:</strong> Chatbot WhatsApp + sistema de inventario automático</p>
+                            <p><strong>Resultado:</strong> 200% aumento en ventas, 0% productos vencidos</p>
+                        </div>
+                        <div class="case-timeline">📅 Implementado en 10 días</div>
+                    </div>
+                    
+                    <div class="case-card">
+                        <div class="case-header">
+                            <h3>🍽️ Restaurante El Buen Sabor</h3>
+                            <span class="location">Medellín, Colombia</span>
+                        </div>
+                        <div class="case-stats">
+                            <div class="stat">
+                                <span class="before">40%</span>
+                                <span class="arrow">→</span>
+                                <span class="after">85%</span>
+                                <span class="label">Ocupación promedio</span>
+                            </div>
+                        </div>
+                        <div class="case-description">
+                            <p><strong>Problema:</strong> Reservas desorganizadas, pedidos con errores</p>
+                            <p><strong>Solución:</strong> Sistema de reservas automático + menú digital interactivo</p>
+                            <p><strong>Resultado:</strong> 60% más ocupación, 90% menos errores en pedidos</p>
+                        </div>
+                        <div class="case-timeline">📅 Implementado en 14 días</div>
+                    </div>
+                    
+                    <div class="case-card">
+                        <div class="case-header">
+                            <h3>👗 Tienda Fashion Elite</h3>
+                            <span class="location">Cali, Colombia</span>
+                        </div>
+                        <div class="case-stats">
+                            <div class="stat">
+                                <span class="before">$2M</span>
+                                <span class="arrow">→</span>
+                                <span class="after">$7M</span>
+                                <span class="label">Ventas mensuales</span>
+                            </div>
+                        </div>
+                        <div class="case-description">
+                            <p><strong>Problema:</strong> No podían atender la demanda en redes sociales</p>
+                            <p><strong>Solución:</strong> Bot de WhatsApp + automatización de pagos + seguimiento</p>
+                            <p><strong>Resultado:</strong> 250% aumento en ventas, atención 24/7</p>
+                        </div>
+                        <div class="case-timeline">📅 Implementado en 12 días</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Choose Us Section -->
+            <div class="why-choose-section">
+                <h2>¿Por Qué Elegirnos?</h2>
+                <div class="reasons-grid">
+                    <div class="reason-card">
+                        <div class="reason-icon">🎯</div>
+                        <h3>Especialización Única</h3>
+                        <p>Único consultor con experiencia farmacéutica + tecnológica en Colombia. Entendemos tu negocio desde adentro.</p>
+                    </div>
+                    
+                    <div class="reason-card">
+                        <div class="reason-icon">🏆</div>
+                        <h3>Resultados Comprobados</h3>
+                        <p>25+ empresas automatizadas exitosamente en Bogotá, Medellín, Cali y otras ciudades principales.</p>
+                    </div>
+                    
+                    <div class="reason-card">
+                        <div class="reason-icon">🇨🇴</div>
+                        <h3>100% Colombiano</h3>
+                        <p>Soporte técnico en español las 24 horas. Conocemos las leyes, impuestos y necesidades locales.</p>
+                    </div>
+                    
+                    <div class="reason-card">
+                        <div class="reason-icon">⚡</div>
+                        <h3>Implementación Rápida</h3>
+                        <p>Promedio de 7-15 días para tener tu sistema funcionando completamente. Sin esperas largas.</p>
+                    </div>
+                    
+                    <div class="reason-card">
+                        <div class="reason-icon">🛡️</div>
+                        <h3>Garantía Total</h3>
+                        <p>Si no funciona como prometemos, lo arreglamos gratis o devolvemos tu dinero. Sin riesgo para ti.</p>
+                    </div>
+                    
+                    <div class="reason-card">
+                        <div class="reason-icon">📈</div>
+                        <h3>Crecimiento Escalable</h3>
+                        <p>Nuestros sistemas crecen contigo. Desde 10 hasta 10,000 clientes sin problemas técnicos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <h2>Preguntas Frecuentes</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>¿Funciona con WhatsApp Business?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>✅ Sí, está totalmente integrado con WhatsApp Business. Tu bot funcionará con tu número actual sin cambios.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>¿Necesito conocimientos técnicos?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>❌ No necesitas saber nada técnico. Nosotros manejamos toda la configuración, programación y mantenimiento.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>¿Cuánto demora la implementación?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>⏱️ Entre 7-15 días según la complejidad. Proyectos simples (chatbot básico) en 1 semana.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>¿Qué pasa si no me funciona?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>🔧 Lo arreglamos completamente gratis hasta que funcione perfecto, o te devolvemos el 100% de tu dinero.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>¿Se integra con mi sistema actual?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>🔗 Sí, nos conectamos con la mayoría de sistemas: POS, inventarios, contabilidad, CRM existentes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>¿Incluye soporte después de la entrega?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>📞 Sí, 30 días de soporte gratuito incluido. Después, planes de mantenimiento desde $50.000/mes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonials Section -->
+            <div class="testimonials-section">
+                <h2>Lo Que Dicen Nuestros Clientes</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Desde que implementamos el chatbot de WhatsApp, nuestras ventas aumentaron un 45%. Ahora atendemos clientes las 24 horas sin contratar personal adicional."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <strong>María González</strong>
+                                <span>Farmacia San Rafael - Bogotá</span>
+                            </div>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"El sistema de inventario automático nos evitó pérdidas por vencimientos. Ahora sabemos exactamente qué pedir y cuándo. Increíble!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <strong>Carlos Ramírez</strong>
+                                <span>Droguería El Punto - Medellín</span>
+                            </div>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"La automatización de pagos con Wompi cambió nuestra operación. Confirmación instantánea y cero errores en facturación."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <strong>Ana Lucia Torres</strong>
+                                <span>Tienda Virtual EcoModa</span>
+                            </div>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <span class="stat-number">25+</span>
+                        <span class="stat-label">Empresas Automatizadas</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">200%</span>
+                        <span class="stat-label">Aumento Promedio en Eficiencia</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Soporte Automático</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Clientes Satisfechos</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Process Section -->
+            <div class="process-section">
+                <h2>¿Cómo Trabajamos Contigo?</h2>
+                <div class="process-steps">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <div class="step-icon">📞</div>
+                        <h3>Consulta Gratuita</h3>
+                        <p>Hablamos 30 minutos para entender tu negocio y necesidades específicas</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <div class="step-icon">📝</div>
+                        <h3>Plan Detallado</h3>
+                        <p>Te entregamos una propuesta clara con costos, tiempos y beneficios esperados</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <div class="step-icon">💰</div>
+                        <h3>Acuerdo Transparente</h3>
+                        <p>Solo empezamos cuando apruebes el precio y el alcance del proyecto</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <div class="step-icon">⚙️</div>
+                        <h3>Desarrollo</h3>
+                        <p>Creamos tu solución personalizada con actualizaciones constantes</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">5</div>
+                        <div class="step-icon">🚀</div>
+                        <h3>Entrega y Soporte</h3>
+                        <p>Probamos juntos, entregamos funcionando y te acompañamos 30 días gratis</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guarantees Section -->
+            <div class="guarantees-section">
+                <h2>Garantías que Te Damos</h2>
+                <div class="guarantees-grid">
+                    <div class="guarantee-card">
+                        <div class="guarantee-icon">🆓</div>
+                        <h3>Consulta 100% Gratis</h3>
+                        <p>Primera reunión completamente gratuita sin compromisos de tu parte</p>
+                    </div>
+                    
+                    <div class="guarantee-card">
+                        <div class="guarantee-icon">💰</div>
+                        <h3>No Cobramos Hasta Aprobar</h3>
+                        <p>Solo facturamos cuando apruebes completamente el plan y los costos</p>
+                    </div>
+                    
+                    <div class="guarantee-card">
+                        <div class="guarantee-icon">🔧</div>
+                        <h3>Si No Funciona, Lo Arreglamos</h3>
+                        <p>Garantía total de funcionamiento o corregimos sin costo adicional</p>
+                    </div>
+                    
+                    <div class="guarantee-card">
+                        <div class="guarantee-icon">🎓</div>
+                        <h3>Todo en Términos Simples</h3>
+                        <p>Explicamos la tecnología en palabras que cualquiera puede entender</p>
+                    </div>
+                    
+                    <div class="guarantee-card">
+                        <div class="guarantee-icon">📞</div>
+                        <h3>Soporte 30 Días Incluido</h3>
+                        <p>Acompañamiento completo el primer mes para garantizar el éxito</p>
+                    </div>
+                    
+                    <div class="guarantee-card">
+                        <div class="guarantee-icon">📈</div>
+                        <h3>Enfoque en Resultados</h3>
+                        <p>Cada peso invertido debe generar más ingresos para tu negocio</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Services Section -->
+            <div class="services-section">
+                <h2>Mis Servicios</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>💊 Gestión Farmacéutica</h3>
+                        <p>Sistemas de inventario inteligente y recordatorios automáticos para farmacias. Control total de stock, vencimientos y reposición automática.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3>💬 Chatbots WhatsApp</h3>
+                        <p>Asistentes virtuales que atienden a tus clientes 24/7, procesan pedidos, responden consultas y generan leads automáticamente.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3>📱 Redes Sociales</h3>
+                        <p>Programación automática de contenido, respuestas inteligentes y análisis de engagement para maximizar tu presencia digital.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3>💳 Pagos Automáticos</h3>
+                        <p>Integración y validación automática de pagos con Stripe, Wompi y Bancolombia. Confirmación instantánea y seguimiento completo.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3>🔄 Flujos Inteligentes</h3>
+                        <p>Automatización personalizada para cualquier tipo de negocio. Desde CRM hasta sistemas de seguimiento de clientes y procesos internos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Chat Section -->
+            <div class="chat-section">
+                <h2>Consulta Inteligente 24/7</h2>
+                <p>Nuestra IA especializada puede ayudarte a identificar qué procesos automatizar en tu negocio</p>
+                
+                <div class="chat-container chat-pulse" id="chatContainer">
+                    <div class="chat-header">
+                        <div class="chat-status">
+                            <div class="status-dot"></div>
+                            <span>Asistente IA - En línea</span>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message bot-message">
+                            <div class="message-content">
+                                <p>¡Hola! Soy el asistente inteligente de Variedades JYM. Puedo ayudarte a identificar qué procesos de tu negocio se pueden automatizar.</p>
+                                <p>Para comenzar, necesito algunos datos:</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="user-form" id="userForm">
+                        <div class="form-group">
+                            <input type="text" id="userName" placeholder="Tu nombre completo" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="countryCode" required>
+                                <option value="+57">🇨🇴 Colombia (+57)</option>
+                                <option value="+1">🇺🇸 Estados Unidos (+1)</option>
+                                <option value="+52">🇲🇽 México (+52)</option>
+                                <option value="+34">🇪🇸 España (+34)</option>
+                                <option value="+54">🇦🇷 Argentina (+54)</option>
+                            </select>
+                            <input type="tel" id="userPhone" placeholder="Número de teléfono" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="userEmail" placeholder="Correo electrónico" required>
+                        </div>
+                        <button type="button" id="startChat" class="start-chat-btn">Comenzar Consulta</button>
+                    </div>
+                    
+                    <div class="chat-input-container" id="chatInputContainer" style="display: none;">
+                        <input type="text" id="chatInput" placeholder="Escribe tu mensaje...">
+                        <button type="button" id="sendMessage">Enviar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="contact-section">
+                <h2>¿Listo para automatizar tu negocio?</h2>
+                <p>Elige la opción que mejor se adapte a tus necesidades</p>
+                
+                <div class="contact-buttons">
+                    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3qKKHUwFIyRokbhRI4ImUv3w80CfjTEGjcW8GUL3gD2VsrvTIaBUnbbSouOjG5zP7tGkJHlKR9" class="contact-button btn-primary" target="_blank">📅 Agendar Consulta</a>
+                    
+                    <a href="https://wa.me/573143833155" class="contact-button btn-whatsapp" target="_blank">🤖 Bot de Prueba</a>
+                    
+                    <a href="https://wa.me/573045788873" class="contact-button btn-personal" target="_blank">💬 Asesoría Personal</a>
+                </div>
+                
+                <div class="contact-info">
+                    <p>📧 Email: madfer1993@gmail.com</p>
+                    <p>Después de usar el bot, puedes escribir a nuestro WhatsApp personal para asesoría especializada</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Variedades JYM - Automatización Digital</p>
+        </div>
+    </footer>
+</body>
+</html>
